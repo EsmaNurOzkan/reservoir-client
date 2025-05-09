@@ -27,7 +27,7 @@ const Login = () => {
       setSuccessMsg('Giriş başarılı.');
 
       setTimeout(() => {
-        navigate('/');
+        navigate('/home');
       }, 2000);
     } catch (error) {
       setErrorMsg(error.message || 'Bir hata oluştu. Lütfen tekrar deneyin.');
