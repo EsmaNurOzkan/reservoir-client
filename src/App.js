@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import "./styles/App.css";
+import Home from './home/Home';
+import Login from './auth/Login';
+import NotFound from './error/NotFound';
+import ResetPassword from './auth/ResetPassword';
+import Register from './auth/Register';
+import Welcome from './home/Welcome'; 
 
-function App() {
+const AppRoutes = () => {
+  const { token, sessionExpired } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {sessionExpired && (
+        <div className="session-expired-message">
+          Oturum süreniz doldu. Lütfen tekrar giriş yapın.
+        </div>
+      )}
+      <Routes>
+        <Route path="/" element={token ? <Navigate to="/home" /> : <Welcome />} />
+        <Route path="/home" element={token ? <Home /> : <Navigate to="/" />} />
+        <Route path="/login" element={!token ? <Login /> : <Navigate to="/home" />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/register" element={!token ? <Register /> : <Navigate to="/home" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </AuthProvider>
+  );
+};
 
 export default App;

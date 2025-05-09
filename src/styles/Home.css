@@ -1,0 +1,34 @@
+.home-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f5e9f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logout-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  color: #8e44ad; 
+  transition: color 0.3s ease;
+}
+
+.logout-icon:hover {
+  color: #6f42c1; 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #4a235a; 
+}
+
+.container h4 {
+  font-weight: 500;
+}

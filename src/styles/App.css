@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+}
+
+.session-expired-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+
+.bounce-enter {
+  opacity: 0;
+  transform: scale(0.6) translateY(-40px);
+}
+.bounce-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: transform 1000ms cubic-bezier(0.22, 1, 0.36, 1), opacity 1000ms ease;
+}
+
+.bounce-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.bounce-exit-active {
+  opacity: 0;
+  transform: scale(0.9) translateY(-10px);
+  transition: transform 800ms ease-in, opacity 800ms ease-in;
+}
+
+.modal-grow-animation .modal-dialog {
+  transform: scale(0.7);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal-grow-animation.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-shrink-animation .modal-dialog {
+  transform: scale(0.7);
+  opacity: 0;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+
+
+.simple_modal .modal-content {
+  background-color: rgba(177, 149, 149, 0.4);
+}
