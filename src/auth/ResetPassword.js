@@ -18,7 +18,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/auth/sendresetlink`,
+        `${process.env.REACT_APP_BACKEND_URL}api/auth/sendresetlink`,
         { email }
       );
       setMessage(res.data.message);
@@ -36,7 +36,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/auth/verifycode`,
+        `${process.env.REACT_APP_BACKEND_URL}api/auth/verifycode`,
         { email, resetCode: code }
       );
       setMessage(res.data.message);
@@ -54,7 +54,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/auth/resetpassword`,
+        `${process.env.REACT_APP_BACKEND_URL}api/auth/resetpassword`,
         {
           email,
           resetCode: code,
