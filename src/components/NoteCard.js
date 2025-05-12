@@ -17,7 +17,7 @@ const NoteCard = ({ userId, token }) => {
       setError('');
 
       const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}api/notes/${userId}/random`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/notes/${userId}/random`,
         {
           headers: {
             Authorization: `Bearer ${token}`

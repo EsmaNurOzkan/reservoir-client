@@ -17,24 +17,25 @@ const Login = () => {
   const alertRef = useRef(null);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrorMsg('');
-    setSuccessMsg('');
+  e.preventDefault();
+  setLoading(true);
+  setErrorMsg('');
+  setSuccessMsg('');
 
-    try {
-      await login(email, password); 
-      setSuccessMsg('Giriş başarılı.');
+  const result = await login(email, password); // <-- Artık success: true/false dönüyor
 
-      setTimeout(() => {
-        navigate('/home');
-      }, 2000);
-    } catch (error) {
-      setErrorMsg(error.message || 'Bir hata oluştu. Lütfen tekrar deneyin.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (result.success) {
+    setSuccessMsg('Giriş başarılı.');
+    setTimeout(() => {
+      navigate('/home');
+    }, 2000);
+  } else {
+    setErrorMsg(result.error || 'Bir hata oluştu. Lütfen tekrar deneyin.');
+  }
+
+  setLoading(false);
+};
+
 
   const handleForgotPassword = () => {
     navigate('/reset-password');

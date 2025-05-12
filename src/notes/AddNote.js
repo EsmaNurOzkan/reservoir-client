@@ -30,7 +30,7 @@ const AddNote = ({ userId, token, onSuccess }) => {
 
     try {
       const response = await axios.post(
-        `${BACKEND_URL}api/notes/${userId}/add`,
+        `${BACKEND_URL}/api/notes/${userId}/add`,
         { content },
         {
           headers: {
