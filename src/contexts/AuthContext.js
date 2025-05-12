@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const handleSendCode = async (email) => {
     setLoading(true);
     try {
-      await axios.post(`${BACKEND_URL}/api/auth/send-code`, { email });
+      await axios.post(`${BACKEND_URL}api/auth/send-code`, { email });
       setCodeSent(true);
       setMessage('Doğrulama kodu e-posta adresinize gönderildi.');
     } catch (error) {
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      await axios.post(`${BACKEND_URL}/api/auth/register`, {
+      await axios.post(`${BACKEND_URL}api/auth/register`, {
         username,
         email,
         password,
@@ -81,7 +81,7 @@ const login = async (email, password) => {
   setMessage('');
 
   try {
-    const response = await axios.post(`${BACKEND_URL}/api/auth/login`, { email, password });
+    const response = await axios.post(`${BACKEND_URL}api/auth/login`, { email, password });
 
     const { user, token, expiresIn } = response.data;
 
