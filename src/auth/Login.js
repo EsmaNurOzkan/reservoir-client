@@ -5,6 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
+  console.log("Login sayfası render edildi");
   const navigate = useNavigate();
   const { login } = useAuth();
 
