@@ -22,7 +22,8 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={token ? <Navigate to="/home" /> : <Welcome />} />
         <Route path="/home" element={token ? <Home /> : <Navigate to="/" />} />
-        <Route path="/login" element={!token ? <Login /> : <Navigate to="/home" />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={!token ? <Login /> : <Navigate to="/home" />} /> */}
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/register" element={!token ? <Register /> : <Navigate to="/home" />} />
         <Route path="*" element={<NotFound />} />
